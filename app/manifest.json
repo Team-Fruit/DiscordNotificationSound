@@ -1,0 +1,51 @@
+{
+  "name": "__MSG_appName__",
+  "version": "1.0.6",
+  "manifest_version": 2,
+  "description": "__MSG_appDescription__",
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "default_locale": "ja",
+  "background": {
+    "scripts": [
+      "scripts/chromereload.js",
+      "scripts/background.js"
+    ],
+    "persistent": true
+  },
+  "options_ui": {
+      "page": "options.html",
+      "open_in_tab": false
+  },
+  "permissions": [
+    "https://discordapp.com/",
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://discordapp.com/*"
+      ],
+      "js": [
+        "bower_components/jquery/dist/jquery.slim.min.js",
+        "scripts/contentscript.js",
+        "scripts/options.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    "assets/se1join.mp3",
+    "assets/se2join.mp3",
+    "assets/se3join.mp3",
+    "assets/se1quit.mp3",
+    "assets/se2quit.mp3",
+    "assets/se3quit.mp3"
+  ]
+}
